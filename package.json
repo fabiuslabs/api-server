@@ -1,0 +1,19 @@
+{
+  "author": "LincolnLabs",
+  "name": "api-server",
+  "description": "API Server",
+  "version": "0.0.1",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "connect": "2.7.3",
+    "express": "3.1.0",
+    "underscore": "1.4.2"
+  }
+}
