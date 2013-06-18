@@ -1,61 +1,134 @@
 // - Dependencies
-var express = require('express'),
-    fs      = require('fs'),
-    path    = require('path'),
-    util    = require('util'),
-    app     = express(),
-    post    = require('./lib/post')
-    //md5     = require('MD5')
+var fs       = require('fs'),
+    mongoose = require('mongoose'),
+    path     = require('path'),
+    restify  = require('restify')
+    util     = require('util'),
+    port     = 8080;
 
-port = 8080;
+mongoose.connect('mongodb://api.lincolnlabs.com/test');
 
-// - Server Settings
-app.use(express.logger('dev'));
-app.use(express.static(__dirname + '/public'));
-app.use(express.query());
-app.use(express.bodyParser({uploadDir: __dirname + '/tmp'}));
-app.use(express.cookieParser("whateveryouwantmetobe"));
-app.use(express.methodOverride());
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
 
-var allowCrossDomain = function(req, res, next) {
+var server = restify.createServer({
+  name: 'api.lincolnlabs',
+  version: '0.0.1'
+});
+  
+server.use(restify.acceptParser(server.acceptable));
+server.use(restify.queryParser());
+server.use(restify.bodyParser());
+server.use(restify.CORS());
+server.use(restify.fullResponse())
 
-  var allowedOrigins = [
-    'http://localhost.api.lincolnlabs.com:8080'
-  ];
+var Agency = require('./models/agency'),
+    Leader = require('./models/leader'),
+    limit  = 10;
 
-  var origin = req.headers.origin;
+// Get all agencies by name
 
-  if(allowedOrigins.indexOf(origin) < 0) {
-    next();
-  }
+server.get('/agencies/name/:name', function(req, res, next) {
 
-  res.header('Access-Control-Allow-Origin',  origin);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Authorization, X-Requested-With, X-File-Name, Content-Type, Content-Encoding, File-Type, Origin, X-Resource-Type, X-Resource-Id, X-Auth-Token');
-  res.header('Access-Control-Allow-Credentials', true);
+  var regex = new RegExp(req.params.name);
 
-  // intercept OPTIONS method
-  if ('OPTIONS' == req.method) {
-    res.send(200);
-  }
+  Agency
+    .find({'Agencies.NAME': regex})
+    .limit((req.params.limit || limit))
+    .exec(function(err, leaders) {
+      res.send(leaders);
+    });
 
-  else {
-    next();
-  }
-};
-app.use(allowCrossDomain);
-
-app.use(express.session());
-
-app.get('*', function(req, res) {
-
-  res.render('index', {
-    layout: false
-  });
 });
 
-// - Start Up Server
+// Get all agencies by type
 
-app.listen(port);
+server.get('/agencies/type/:type', function(req, res, next) {
 
-util.log("Express server instance listening on port " + port);
+  var regex = new RegExp(req.params.name);
+
+  Agency
+    .find({'Agency Type': regex})
+    .limit((req.params.limit || limit))
+    .exec(function(err, leaders) {
+      res.send(leaders);
+    });
+
+});
+
+// Get all agencies
+
+server.get('/agencies', function(req, res, next) {
+
+  var regex = new RegExp(req.params.name);
+
+  Agency
+    .find()
+    .limit((req.params.limit || limit))
+    .exec(function(err, leaders) {
+      res.send(leaders);
+    });
+
+});
+
+// Get all leaders by country
+
+server.get('/leaders/country/:country', function(req, res, next) {
+
+  var regex = new RegExp(req.params.name);
+
+  Leader
+    .find({'Country': regex})
+    .limit((req.params.limit || limit))
+    .exec(function(err, leaders) {
+      res.send(leaders);
+    });
+
+});
+
+// Get all leaders by name
+
+server.get('/leaders/name/:name', function(req, res, next) {
+
+  var regex = new RegExp(req.params.name);
+
+  Leader
+    .find({'Leader.NAME': regex})
+    .limit((req.params.limit || limit))
+    .exec(function(err, leaders) {
+      res.send(leaders);
+    });
+
+});
+
+// Get all leaders by title
+
+server.get('/leaders/title/:title', function(req, res, next) {
+
+  var regex = new RegExp(req.params.name);
+
+  Leader
+    .find({'Leader.TITLE': regex})
+    .limit((req.params.limit || limit))
+    .exec(function(err, leaders) {
+      res.send(leaders);
+    });
+
+});
+
+// Get all leaders
+
+server.get('/leaders', function(req, res, next) {
+
+  var regex = new RegExp(req.params.name);
+
+  Leader
+    .find()
+    .limit((req.params.limit || limit))
+    .exec(function(err, leaders) {
+      res.send(leaders);
+    });
+
+});
+
+server.listen(port);

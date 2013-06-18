@@ -12,8 +12,8 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "connect": "2.7.3",
-    "express": "3.1.0",
+    "mongoose": "3.6.11",
+    "restify": "2.6.0",
     "underscore": "1.4.2"
   }
 }
