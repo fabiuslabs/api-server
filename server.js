@@ -30,7 +30,8 @@ var Agency = require('./models/agency'),
 
 server.get('/agencies/name/:name', function(req, res, next) {
 
-  var regex = new RegExp(req.params.name);
+  // Make case insensitive
+  var regex = new RegExp(req.params.name, "i");
 
   Agency
     .find({'Agencies.NAME': regex})
@@ -45,7 +46,8 @@ server.get('/agencies/name/:name', function(req, res, next) {
 
 server.get('/agencies/type/:type', function(req, res, next) {
 
-  var regex = new RegExp(req.params.name);
+  // Make case insensitive
+  var regex = new RegExp(req.params.name, "i");
 
   Agency
     .find({'Agency Type': regex})
@@ -60,7 +62,8 @@ server.get('/agencies/type/:type', function(req, res, next) {
 
 server.get('/agencies', function(req, res, next) {
 
-  var regex = new RegExp(req.params.name);
+  // Make case insensitive
+  var regex = new RegExp(req.params.name, "i");
 
   Agency
     .find()
@@ -75,7 +78,8 @@ server.get('/agencies', function(req, res, next) {
 
 server.get('/leaders/country/:country', function(req, res, next) {
 
-  var regex = new RegExp(req.params.name);
+  // Make case insensitive
+  var regex = new RegExp(req.params.name, "i");
 
   Leader
     .find({'Country': regex})
@@ -90,7 +94,8 @@ server.get('/leaders/country/:country', function(req, res, next) {
 
 server.get('/leaders/name/:name', function(req, res, next) {
 
-  var regex = new RegExp(req.params.name);
+  // Make case insensitive
+  var regex = new RegExp(req.params.name, "i");
 
   Leader
     .find({'Leader.NAME': regex})
@@ -105,7 +110,8 @@ server.get('/leaders/name/:name', function(req, res, next) {
 
 server.get('/leaders/title/:title', function(req, res, next) {
 
-  var regex = new RegExp(req.params.name);
+  // Make case insensitive
+  var regex = new RegExp(req.params.name, "i");
 
   Leader
     .find({'Leader.TITLE': regex})
@@ -119,8 +125,6 @@ server.get('/leaders/title/:title', function(req, res, next) {
 // Get all leaders
 
 server.get('/leaders', function(req, res, next) {
-
-  var regex = new RegExp(req.params.name);
 
   Leader
     .find()
