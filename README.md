@@ -15,6 +15,24 @@
 ##Text message and telephony API
 
     http://apidocs.sendhub.com/
+    
+# 3Taps API
+
+## Public facts and data storage
+
+    http://docs.3taps.com/
+    
+# Eventbrite API
+
+## Create and host events
+
+    http://developer.eventbrite.com/
+
+# Sunlight Foundation API
+
+## State and federal legistlative transperancy 
+
+    http://sunlightfoundation.com/api/
 
 # LincolnLabs API (in progress)
 
