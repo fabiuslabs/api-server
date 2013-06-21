@@ -90,6 +90,10 @@ To get all agencies:
 
     http://api.lincolnlabs.com:8080/agencies
 
+### Name
+
+    http://api.lincolnlabs.com:8080/name/:name
+
 ### Type
 To get an agency by type:
 
@@ -134,3 +138,19 @@ To get all world leaders by title:
     http://api.lincolnlabs.com:8080/leaders/title/:title
 
 With `:title` being the title you wish to query.
+
+## /states
+States
+
+### All
+To get all states:
+
+    http://api.lincolnlabs.com:8080/states
+
+### Specific state
+
+    http://api.lincolnlabs.com:8080/states/:state
+
+Example:
+
+    http://api.lincolnlabs.com:8080/states/tx
