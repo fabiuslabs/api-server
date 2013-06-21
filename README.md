@@ -34,12 +34,30 @@
 
     http://sunlightfoundation.com/api/
 
+# OpenGov
+
+    https://github.com/opengovfoundation
+
+## Liberate the Law
+
+    https://law.resource.org/pub/us/code/ar/
+    http://legix.info/us-ca/codes/root.html
+    https://law.resource.org/pub/us/code/co/
+    https://law.resource.org/pub/us/code/ga/
+    https://law.resource.org/pub/us/code/id/
+    https://law.resource.org/pub/us/code/ms/
+    https://github.com/opengovfoundation/marylandcode
+    https://law.resource.org/pub/us/code/dc/
+
+## Semantically Rich ("Deep") XML on all US Congress Bills
+
+    http://deepbills.cato.org/download
+
+## State codes
+
+    https://github.com/statedecoded/statedecoded
+
 # LincolnLabs API (in progress)
-
-## Start the server
-
-    npm install
-    node server
 
 ## Global options
 
@@ -47,6 +65,13 @@
 By default the limit is 10 on a call, but you can change that by setting `limit` in the query params:
 
     ?limit=20
+
+### Sort (Default a)
+By default the sorting is done alphabetically from a-z. You can change this by passing in:
+
+    ?sort=z
+
+to get reverse alphabetical order.
 
 ### Parameters
 All parameters are regular expressions.
