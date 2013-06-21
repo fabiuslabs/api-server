@@ -47,7 +47,7 @@ server.get('/agencies/name/:name', function(req, res, next) {
 server.get('/agencies/type/:type', function(req, res, next) {
 
   // Make case insensitive
-  var regex = new RegExp(req.params.name, "i");
+  var regex = new RegExp(req.params.type, "i");
 
   Agency
     .find({'Agency Type': regex})
@@ -61,9 +61,6 @@ server.get('/agencies/type/:type', function(req, res, next) {
 // Get all agencies
 
 server.get('/agencies', function(req, res, next) {
-
-  // Make case insensitive
-  var regex = new RegExp(req.params.name, "i");
 
   Agency
     .find()
@@ -79,7 +76,7 @@ server.get('/agencies', function(req, res, next) {
 server.get('/leaders/country/:country', function(req, res, next) {
 
   // Make case insensitive
-  var regex = new RegExp(req.params.name, "i");
+  var regex = new RegExp(req.params.country, "i");
 
   Leader
     .find({'Country': regex})
@@ -111,7 +108,7 @@ server.get('/leaders/name/:name', function(req, res, next) {
 server.get('/leaders/title/:title', function(req, res, next) {
 
   // Make case insensitive
-  var regex = new RegExp(req.params.name, "i");
+  var regex = new RegExp(req.params.title, "i");
 
   Leader
     .find({'Leader.TITLE': regex})
