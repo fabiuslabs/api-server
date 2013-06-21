@@ -53,7 +53,7 @@ All parameters are regular expressions.
 
 For example, if you call all world leaders by name:
 
-    http://api.lincolnlabs.com/leaders/name/(a|b)
+    http://api.lincolnlabs.com:8080/leaders/name/(a|b)
 
 you are able to use the OR assignment and get all results for both.
 
@@ -63,12 +63,12 @@ Agencies
 ### All
 To get all agencies:
 
-    http://api.lincolnlabs.com/agencies
+    http://api.lincolnlabs.com:8080/agencies
 
 ### Type
 To get an agency by type:
 
-    http://api.lincolnlabs.com/type/:type
+    http://api.lincolnlabs.com:8080/type/:type
 
 Type may be:
 
@@ -87,25 +87,25 @@ World Leaders
 ### All
 To get all world leaders:
 
-    http://api.lincolnlabs.com/leaders
+    http://api.lincolnlabs.com:8080/leaders
 
 ### Country
 To get all world leaders by country:
 
-    http://api.lincolnlabs.com/leaders/country/:country
+    http://api.lincolnlabs.com:8080/leaders/country/:country
 
 With `:country` being the country you wish to query.
 
 ### Name
 To get all world leaders by name:
 
-    http://api.lincolnlabs.com/leaders/name/:name
+    http://api.lincolnlabs.com:8080/leaders/name/:name
 
 With `:name` being the name you wish to query.
 
 ### Title
 To get all world leaders by title:
 
-    http://api.lincolnlabs.com/leaders/title/:title
+    http://api.lincolnlabs.com:8080/leaders/title/:title
 
 With `:title` being the title you wish to query.
