@@ -1,9 +1,20 @@
-#Aristotle 
+#Aristotle API
 
 ## Citizen contact information 
 
     https://s3.amazonaws.com/lincolnlabs.com/aristotle_api_documentation.pdf
+    
+# OpenSecrets API
 
+## Contribution information
+
+    http://www.opensecrets.org/resources/create/api_doc.php
+
+# SendHub API
+
+##Text message and telephony API
+
+    http://apidocs.sendhub.com/
 
 # LincolnLabs API (in progress)
 
