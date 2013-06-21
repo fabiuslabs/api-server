@@ -1,5 +1,8 @@
 #Aristotle 
 
+## Citizen contact information 
+
+    https://s3.amazonaws.com/lincolnlabs.com/aristotle_api_documentation.pdf
 
 
 # LincolnLabs API (in progress)
